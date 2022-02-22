@@ -1,4 +1,7 @@
 # Write your code below game_hash
+
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -126,4 +129,56 @@ def game_hash
   }
 end
 
+# game_hash.select
+
 # Write code here
+# name
+# def num_points_scored name
+#   team = game_hash.map{|team| team[:players]}
+#   puts team.select{|player| player[:player_name] == name do
+#   puts player[:points] end } 
+#   # map{|player| puts (player[:player_name], player[:points])}
+# end
+
+# num_points_scored "Kemba Walker"
+# game_hash[:home][:players] + game_hash[:away][:players]
+
+def num_points_scored name
+  game_hash.each { |k, v|
+    v[:players].each { |player| 
+    if player[:player_name] == name
+      return player[:points]
+    end
+    }} 
+end
+
+def shoe_size name
+  game_hash.each { |k, v|
+  v[:players].each { |player| 
+  if player[:player_name] == name
+    return player[:shoe]
+  end
+  }} 
+end
+
+def team_colors name
+  game_hash.each { |k, v|
+    # binding.pry
+    if v[:team_name] == name
+      return v[:colors]
+    end
+  }
+end
+
+def team_names
+  game_hash.map { |k, v|
+    v[:team_name]
+  }
+end
+
+def player_numbers
+  game_hash.map { |k, v|
+    v[:players].each { |p| 
+    p[:number].collect
+    }} 
+end
