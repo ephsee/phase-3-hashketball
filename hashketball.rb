@@ -176,20 +176,20 @@ def team_names
   }
 end
 
-def player_numbers
-  home_players = []
-  away_players = []
-
-  game_hash.map { |k, v|
-    if v == home {
-      home_players.push{v[:players].each{ |player| 
-        return player[:number] 
-      }}
+def player_numbers name
+    numbers = []
+    game_hash.map { |k, v|
+    # binding.pry
+      
+    puts v[:team_name]
+      # if v[:team_name] == name {
+      #   binding.pry
+      #   numbers.push{v[:players].each{ |player|
+      #   binding.pry
+      #   return player[:number]
+      # }}}
+      # end
     }
-    else {
-      away_players.push{v[:players].each{ |player| 
-        return player[:number] 
-      }}
-    }
-  }
 end
+teams = player_numbers
+puts teams
