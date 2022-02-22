@@ -177,8 +177,19 @@ def team_names
 end
 
 def player_numbers
+  home_players = []
+  away_players = []
+
   game_hash.map { |k, v|
-    v[:players].each { |p| 
-    p[:number].collect
-    }} 
+    if v == home {
+      home_players.push{v[:players].each{ |player| 
+        return player[:number] 
+      }}
+    }
+    else {
+      away_players.push{v[:players].each{ |player| 
+        return player[:number] 
+      }}
+    }
+  }
 end
