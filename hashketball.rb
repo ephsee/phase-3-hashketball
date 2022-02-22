@@ -177,19 +177,25 @@ def team_names
 end
 
 def player_numbers name
-    numbers = []
-    game_hash.map { |k, v|
-    # binding.pry
-      
-    puts v[:team_name]
-      # if v[:team_name] == name {
-      #   binding.pry
-      #   numbers.push{v[:players].each{ |player|
-      #   binding.pry
-      #   return player[:number]
-      # }}}
-      # end
-    }
+
+   game_hash.values.each{ |v|  
+    if v[:team_name] == name
+      return v[:players].map{ |o| o[:number] }
+    end
+  }
+  
 end
-teams = player_numbers
-puts teams
+
+def player_stats pl
+  
+    game_hash.each { |k, v|
+    v[:players].each { |player| 
+    if player[:player_name] == pl
+      return player
+    end
+    }} 
+
+end
+
+
+
