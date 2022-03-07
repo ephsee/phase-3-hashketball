@@ -198,4 +198,17 @@ def player_stats pl
 end
 
 
+def big_shoe_rebounds 
+  # binding.pry
+  game_hash.values.map{|v| 
+    v[:players]}.flatten.max_by{|e| e[:shoe]}[:rebounds]
+end
 
+puts big_shoe_rebounds
+
+  #  game_hash.values.each{ |v|  
+  #   if v[:team_name] == name
+  #     return v[:players].map{ |o| o[:number] }
+  #   end
+  # }
+  # game_hash.values.map{|v| v[:players].map{|va| va[:player_name]}}.flatten.map{|name|shoe_size name }
